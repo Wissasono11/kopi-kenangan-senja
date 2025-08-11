@@ -13,7 +13,7 @@ Sebuah website kafe kopi premium yang menampilkan pengalaman digital yang elegan
 
 ## 🚀 Live Demo
 
-Kunjungi website live di: **[Kopi Kenangan Senja Live](https://wissasono11.github.io/kopi-kenangan-senja/)**
+Kunjungi website live di: **[Kopi Kenangan Senja Live](https://kopi-kenangansenja.netlify.app)**
 
 ## 🛠️ Teknologi yang Digunakan
 
