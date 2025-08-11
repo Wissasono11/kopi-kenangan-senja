@@ -87,7 +87,307 @@ document.addEventListener('DOMContentLoaded', function() {
       navbar.classList.remove('bg-gray-900/95');
     } else {
       navbar.classList.add('bg-gray-900/95');
-      navbar.classList.remove('bg-gray-900/98');
     }
   });
+});
+
+// Products Section JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+  // Product Filter Functionality
+  const filterButtons = document.querySelectorAll('.product-filter');
+  const productItems = document.querySelectorAll('.product-item');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const filter = this.getAttribute('data-filter');
+      
+      // Update active filter button
+      filterButtons.forEach(btn => {
+        btn.classList.remove('bg-gradient-to-r', 'from-[#b6895b]', 'to-[#d4af37]', 'text-white', 'active');
+        btn.classList.add('bg-gray-800/50', 'text-gray-300');
+      });
+      
+      this.classList.add('bg-gradient-to-r', 'from-[#b6895b]', 'to-[#d4af37]', 'text-white', 'active');
+      this.classList.remove('bg-gray-800/50', 'text-gray-300');
+      
+      // Filter products
+      productItems.forEach(item => {
+        if (filter === 'all' || item.classList.contains(filter)) {
+          item.style.display = 'block';
+          item.style.animation = 'fadeInUp 0.5s ease-out';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+
+// Product Modal Functionality
+const productData = {
+  'arabica-blend': {
+    name: 'Arabica Premium Blend',
+    price: 'IDR 85K',
+    weight: '250g',
+    image: 'img/menu/1.jpg',
+    category: 'Biji Kopi Premium',
+    description: 'Biji kopi arabica pilihan yang dipetik dari ketinggian 1200-1800 mdpl dengan proses pengolahan yang sempurna. Memiliki karakteristik rasa yang kompleks dengan sentuhan fruity dan floral yang elegan.',
+    features: [
+      '✓ Single Origin dari perkebunan terpilih',
+      '✓ Roasting level Medium untuk balanced flavor',
+      '✓ Aroma fruity dengan hint chocolate',
+      '✓ Acidity level rendah, cocok untuk semua kalangan',
+      '✓ Kemasan kedap udara untuk freshness'
+    ],
+    brewing: 'Recommended: V60, Chemex, French Press',
+    origin: 'Aceh Gayo, Indonesia'
+  },
+  'robusta-strong': {
+    name: 'Robusta Strong',
+    price: 'IDR 65K',
+    weight: '250g',
+    image: 'img/menu/2.jpg',
+    category: 'Biji Kopi Strong',
+    description: 'Kopi robusta dengan karakter kuat dan bold, perfect untuk pecinta kopi dengan intensitas tinggi. Menghadirkan body yang full dengan crema yang kental dan bertahan lama.',
+    features: [
+      '✓ Caffeine content tinggi untuk energi extra',
+      '✓ Body yang full dan creamy',
+      '✓ Perfect untuk espresso-based drinks',
+      '✓ Bitter-sweet balance yang sempurna',
+      '✓ Tahan lama di lidah dengan aftertaste yang pleasant'
+    ],
+    brewing: 'Recommended: Espresso Machine, Moka Pot',
+    origin: 'Lampung, Indonesia'
+  },
+  'v60-dripper': {
+    name: 'V60 Dripper Set',
+    price: 'IDR 350K',
+    weight: 'Complete Set',
+    image: 'img/menu/3.jpg',
+    category: 'Professional Equipment',
+    description: 'Set lengkap V60 dripper untuk manual brewing yang sempurna. Dirancang khusus untuk menghasilkan ekstraksi kopi yang optimal dengan kontrol penuh atas proses brewing.',
+    features: [
+      '✓ V60 Dripper ceramic grade premium',
+      '✓ Server glass 600ml dengan measurement',
+      '✓ Paper filter V60 (40 pcs included)',
+      '✓ Gooseneck kettle untuk precision pouring',
+      '✓ Digital scale dengan timer built-in',
+      '✓ Panduan brewing lengkap'
+    ],
+    brewing: 'Perfect for Pour Over Coffee',
+    origin: 'Imported from Japan'
+  },
+  'french-press': {
+    name: 'French Press Premium',
+    price: 'IDR 275K',
+    weight: '600ml',
+    image: 'img/menu/4.jpg',
+    category: 'Professional Equipment',
+    description: 'French press berkualitas tinggi dengan material borosilicate glass dan frame stainless steel. Ideal untuk menghasilkan full body coffee dengan ekstraksi sempurna.',
+    features: [
+      '✓ Borosilicate glass tahan panas tinggi',
+      '✓ Stainless steel frame dan plunger',
+      '✓ Double-wall insulation',
+      '✓ Easy-clean design',
+      '✓ Capacity 600ml (4-5 cups)',
+      '✓ Heat-resistant handle'
+    ],
+    brewing: 'Full Immersion Brewing Method',
+    origin: 'European Design'
+  },
+  'coffee-mug': {
+    name: 'Kenangan Senja Mug',
+    price: 'IDR 125K',
+    weight: '350ml',
+    image: 'img/menu/5.jpg',
+    category: 'Limited Edition Merchandise',
+    description: 'Mug eksklusif dengan logo Kenangan Senja yang elegan. Terbuat dari ceramic berkualitas tinggi dengan finishing matt yang premium dan comfortable grip.',
+    features: [
+      '✓ Premium ceramic material',
+      '✓ Matt finish dengan texture yang nyaman',
+      '✓ Logo embossed Kenangan Senja',
+      '✓ Microwave dan dishwasher safe',
+      '✓ Ergonomic handle design',
+      '✓ Limited edition - Collectible item'
+    ],
+    brewing: 'Perfect for any hot beverages',
+    origin: 'Handcrafted in Indonesia'
+  },
+  'tote-bag': {
+    name: 'Canvas Tote Bag',
+    price: 'IDR 185K',
+    weight: 'Eco-friendly',
+    image: 'img/menu/6.jpg',
+    category: 'Sustainable Merchandise',
+    description: 'Tas kanvas premium dengan desain minimalis yang versatile. Terbuat dari 100% organic cotton dengan printing ramah lingkungan.',
+    features: [
+      '✓ 100% Organic cotton canvas',
+      '✓ Eco-friendly water-based printing',
+      '✓ Strong reinforced stitching',
+      '✓ Large capacity untuk daily essentials',
+      '✓ Foldable dan lightweight',
+      '✓ Minimalist design cocok untuk berbagai outfit'
+    ],
+    brewing: 'Perfect companion for coffee runs',
+    origin: 'Sustainably made in Indonesia'
+  },
+  'starter-set': {
+    name: 'Coffee Starter Set',
+    price: 'IDR 450K',
+    weight: '6 Items',
+    image: 'img/menu/1.jpg',
+    category: 'Best Value Gift Set',
+    description: 'Paket lengkap untuk pemula yang ingin memulai journey manual brewing. Berisi semua essential items dengan panduan brewing yang detail.',
+    features: [
+      '✓ V60 Dripper plastic (beginners friendly)',
+      '✓ Server glass 360ml',
+      '✓ Paper filters V60 (20 pcs)',
+      '✓ Coffee beans 250g (your choice)',
+      '✓ Kenangan Senja mug',
+      '✓ Detailed brewing guide booklet'
+    ],
+    brewing: 'Complete starter package',
+    origin: 'Curated by Kenangan Senja'
+  },
+  'premium-gift': {
+    name: 'Premium Gift Box',
+    price: 'IDR 750K',
+    weight: 'Luxury Pack',
+    image: 'img/menu/2.jpg',
+    category: 'Exclusive Gift Set',
+    description: 'Gift box mewah dengan koleksi produk premium dalam packaging yang elegan. Perfect untuk corporate gift atau special occasions.',
+    features: [
+      '✓ Premium coffee beans selection (2 x 250g)',
+      '✓ V60 ceramic dripper set',
+      '✓ French press 350ml',
+      '✓ Kenangan Senja mug premium',
+      '✓ Canvas tote bag',
+      '✓ Luxury gift box packaging dengan ribbon'
+    ],
+    brewing: 'Ultimate coffee experience',
+    origin: 'Exclusively curated luxury collection'
+  }
+};
+
+function openProductModal(productId) {
+  const modal = document.getElementById('productModal');
+  const modalContent = document.getElementById('modalContent');
+  const product = productData[productId];
+  
+  if (!product) return;
+  
+  modalContent.innerHTML = `
+    <div class="relative">
+      <!-- Close Button -->
+      <button onclick="closeProductModal()" class="absolute top-6 right-6 z-10 w-10 h-10 bg-red-500/20 hover:bg-red-500/40 backdrop-blur-sm border border-red-500/30 rounded-full flex items-center justify-center text-red-400 hover:text-red-300 transition-all duration-300">
+        <i data-feather="x" class="w-5 h-5"></i>
+      </button>
+      
+      <!-- Modal Content -->
+      <div class="flex flex-col lg:flex-row gap-8 p-8">
+        <!-- Product Image -->
+        <div class="lg:w-1/2">
+          <img src="${product.image}" alt="${product.name}" class="w-full h-80 lg:h-96 object-cover rounded-2xl shadow-2xl">
+          <div class="mt-4 text-center">
+            <span class="inline-block bg-[#b6895b]/20 backdrop-blur-sm border border-[#b6895b]/30 text-[#d4af37] px-4 py-2 rounded-full text-sm font-medium">
+              ${product.category}
+            </span>
+          </div>
+        </div>
+        
+        <!-- Product Details -->
+        <div class="lg:w-1/2 space-y-6">
+          <div>
+            <h2 class="text-3xl font-bold text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text mb-2">
+              ${product.name}
+            </h2>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl font-bold text-white">${product.price}</span>
+              <span class="text-gray-400">${product.weight}</span>
+            </div>
+          </div>
+          
+          <!-- Description -->
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-3">Deskripsi Produk</h3>
+            <p class="text-gray-300 leading-relaxed text-justify">
+              ${product.description}
+            </p>
+          </div>
+          
+          <!-- Features -->
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-3">Fitur & Spesifikasi</h3>
+            <ul class="space-y-2 text-gray-300">
+              ${product.features.map(feature => `<li class="text-sm">${feature}</li>`).join('')}
+            </ul>
+          </div>
+          
+          <!-- Additional Info -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-gray-700/50">
+            <div>
+              <h4 class="font-semibold text-[#d4af37] mb-1">Brewing Method</h4>
+              <p class="text-sm text-gray-400">${product.brewing}</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-[#d4af37] mb-1">Origin</h4>
+              <p class="text-sm text-gray-400">${product.origin}</p>
+            </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 pt-6">
+            <button class="bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white px-4 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-[#b6895b]/40 transition-all duration-300 transform hover:scale-105 flex items-center justify-center">
+              <i data-feather="shopping-cart" class="w-5 h-5 mr-3"></i>
+              Tambah ke Keranjang
+            </button>
+            <a href="#contact" onclick="closeProductModal()" class="bg-gray-800/50 backdrop-blur-sm border border-gray-600/30 text-white px-4 py-4 rounded-full font-semibold hover:bg-[#b6895b]/20 transition-all duration-300 flex items-center justify-center">
+              <i data-feather="message-circle" class="w-5 h-5 mr-3"></i>
+              Tanya Detail
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  // Reinitialize Feather icons for the modal content
+  feather.replace();
+  
+  // Show modal with animation
+  modal.classList.remove('opacity-0', 'invisible');
+  modal.classList.add('opacity-100', 'visible');
+  modalContent.classList.remove('scale-95');
+  modalContent.classList.add('scale-100');
+  
+  // Prevent background scrolling
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProductModal() {
+  const modal = document.getElementById('productModal');
+  const modalContent = document.getElementById('modalContent');
+  
+  // Hide modal with animation
+  modal.classList.remove('opacity-100', 'visible');
+  modal.classList.add('opacity-0', 'invisible');
+  modalContent.classList.remove('scale-100');
+  modalContent.classList.add('scale-95');
+  
+  // Restore background scrolling
+  document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside
+document.getElementById('productModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeProductModal();
+  }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeProductModal();
+  }
 });
