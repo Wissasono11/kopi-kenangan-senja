@@ -322,143 +322,263 @@
 
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 justify-items-center max-w-5xl mx-auto">
+          <!-- Espresso Card -->
           <div
-            class="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm">
+            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
+            onclick="openMenuModal('espresso')">
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-6">
                 <img src="img/menu/1.jpg" alt="Espresso"
-                  class="rounded-full w-32 h-32 mx-auto object-cover border-4 border-gray-600/50 group-hover:border-[#b6895b]/70 transition-colors duration-500 group-hover:scale-110 transform duration-500" />
+                  class="rounded-2xl w-full h-48 object-cover border-2 border-gray-600/30 group-hover:border-[#b6895b]/70 transition-colors duration-500 group-hover:scale-105 transform duration-500" />
                 <div
-                  class="absolute -top-2 -right-2 bg-[#b6895b] text-white text-xs px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">Popular</div>
+                  class="absolute -top-2 -right-2 bg-[#b6895b]/80 backdrop-blur-md border border-[#b6895b]/30 text-white text-xs px-3 py-1 rounded-full shadow-lg hover:shadow-[#b6895b]/40">Popular</div>
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-2xl"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full p-3">
+                    <i data-feather="eye" class="w-6 h-6 text-white"></i>
+                  </div>
+                </div>
               </div>
-              <h3 class="text-xl font-bold mb-3 text-center">
+              <h3 class="text-xl font-bold mb-2 text-center">
                 <span
-                  class="text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">-
-                  Espresso -</span>
+                  class="text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">Espresso</span>
               </h3>
-              <p class="text-base font-semibold text-center text-white mb-4">IDR
-                15K</p>
-              <a href="#contact"
-                class="w-full py-3 px-6 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 hover:shadow-lg inline-flex items-center justify-center">
-                Pesan Sekarang
-              </a>
+              <p class="text-sm text-gray-400 mb-3 text-center">Premium single shot espresso dengan crema sempurna</p>
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-xl font-bold text-white">IDR 15K</span>
+                <div class="flex items-center text-yellow-400">
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <span class="text-sm ml-1">4.8</span>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <button onclick="event.stopPropagation(); openMenuModal('espresso')"
+                  class="flex-1 py-2 px-4 bg-gradient-to-r from-[#b6895b]/20 to-[#d4af37]/20 backdrop-blur-sm border border-[#b6895b]/30 text-[#d4af37] rounded-full text-sm font-medium hover:bg-[#b6895b]/30 transition-all duration-300">
+                  Detail
+                </button>
+                <a href="#contact"
+                  class="flex-1 py-2 px-4 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white rounded-full text-sm font-medium hover:shadow-lg transition-all duration-300 text-center">
+                  Pesan
+                </a>
+              </div>
             </div>
           </div>
 
+          <!-- Cappucino Card -->
           <div
-            class="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm">
+            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
+            onclick="openMenuModal('cappuccino')">
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-6">
                 <img src="img/menu/2.jpg" alt="Cappucino"
-                  class="rounded-full w-32 h-32 mx-auto object-cover border-4 border-gray-600/50 group-hover:border-[#b6895b]/70 transition-colors duration-500 group-hover:scale-110 transform duration-500" />
+                  class="rounded-2xl w-full h-48 object-cover border-2 border-gray-600/30 group-hover:border-[#b6895b]/70 transition-colors duration-500 group-hover:scale-105 transform duration-500" />
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-2xl"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full p-3">
+                    <i data-feather="eye" class="w-6 h-6 text-white"></i>
+                  </div>
+                </div>
               </div>
-              <h3
-                class="text-xl font-bold mb-3 text-center text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">-
-                Cappucino -</h3>
-              <p class="text-base font-semibold text-center text-white mb-4">IDR
-                13K</p>
-              <a href="#contact"
-                class="w-full py-3 px-6 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 hover:shadow-lg inline-flex items-center justify-center">
-                Pesan Sekarang
-              </a>
+              <h3 class="text-xl font-bold mb-2 text-center">
+                <span
+                  class="text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">Cappuccino</span>
+              </h3>
+              <p class="text-sm text-gray-400 mb-3 text-center">Espresso dengan susu steamed dan foam yang lembut</p>
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-xl font-bold text-white">IDR 13K</span>
+                <div class="flex items-center text-yellow-400">
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <span class="text-sm ml-1">4.7</span>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <button onclick="event.stopPropagation(); openMenuModal('cappuccino')"
+                  class="flex-1 py-2 px-4 bg-gradient-to-r from-[#b6895b]/20 to-[#d4af37]/20 backdrop-blur-sm border border-[#b6895b]/30 text-[#d4af37] rounded-full text-sm font-medium hover:bg-[#b6895b]/30 transition-all duration-300">
+                  Detail
+                </button>
+                <a href="#contact"
+                  class="flex-1 py-2 px-4 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white rounded-full text-sm font-medium hover:shadow-lg transition-all duration-300 text-center">
+                  Pesan
+                </a>
+              </div>
             </div>
           </div>
 
+          <!-- Latte Card -->
           <div
-            class="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm">
+            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
+            onclick="openMenuModal('latte')">
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-6">
                 <img src="img/menu/3.jpg" alt="Latte"
-                  class="rounded-full w-32 h-32 mx-auto object-cover border-4 border-gray-600/50 group-hover:border-[#b6895b]/70 transition-colors duration-500 group-hover:scale-110 transform duration-500" />
+                  class="rounded-2xl w-full h-48 object-cover border-2 border-gray-600/30 group-hover:border-[#b6895b]/70 transition-colors duration-500 group-hover:scale-105 transform duration-500" />
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-2xl"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full p-3">
+                    <i data-feather="eye" class="w-6 h-6 text-white"></i>
+                  </div>
+                </div>
               </div>
-              <h3 class="text-xl font-bold mb-3 text-center">
+              <h3 class="text-xl font-bold mb-2 text-center">
                 <span
-                  class="text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">-
-                  Latte -</span>
+                  class="text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">Latte</span>
               </h3>
-              <p class="text-base font-semibold text-center text-white mb-4">IDR
-                14K</p>
-              <a href="#contact"
-                class="w-full py-3 px-6 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 hover:shadow-lg inline-flex items-center justify-center">
-                Pesan Sekarang
-              </a>
+              <p class="text-sm text-gray-400 mb-3 text-center">Espresso dengan steamed milk dan latte art yang indah</p>
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-xl font-bold text-white">IDR 14K</span>
+                <div class="flex items-center text-yellow-400">
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <span class="text-sm ml-1">4.9</span>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <button onclick="event.stopPropagation(); openMenuModal('latte')"
+                  class="flex-1 py-2 px-4 bg-gradient-to-r from-[#b6895b]/20 to-[#d4af37]/20 backdrop-blur-sm border border-[#b6895b]/30 text-[#d4af37] rounded-full text-sm font-medium hover:bg-[#b6895b]/30 transition-all duration-300">
+                  Detail
+                </button>
+                <a href="#contact"
+                  class="flex-1 py-2 px-4 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white rounded-full text-sm font-medium hover:shadow-lg transition-all duration-300 text-center">
+                  Pesan
+                </a>
+              </div>
             </div>
           </div>
 
+          <!-- Macchiato Card -->
           <div
-            class="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm">
+            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
+            onclick="openMenuModal('macchiato')">
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-6">
-                <img src="img/menu/4.jpg" alt="Machiatto"
-                  class="rounded-full w-32 h-32 mx-auto object-cover border-4 border-gray-600/50 group-hover:border-[#b6895b]/70 transition-colors duration-500 group-hover:scale-110 transform duration-500" />
+                <img src="img/menu/4.jpg" alt="Macchiato"
+                  class="rounded-2xl w-full h-48 object-cover border-2 border-gray-600/30 group-hover:border-[#b6895b]/70 transition-colors duration-500 group-hover:scale-105 transform duration-500" />
                 <div
-                  class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">Premium</div>
+                  class="absolute -top-2 -right-2 bg-red-500/80 backdrop-blur-md border border-red-500/30 text-white text-xs px-3 py-1 rounded-full shadow-lg hover:shadow-red-500/40">Premium</div>
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-2xl"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full p-3">
+                    <i data-feather="eye" class="w-6 h-6 text-white"></i>
+                  </div>
+                </div>
               </div>
-              <h3
-                class="text-xl font-bold mb-3 text-center text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">-
-                Machiatto -</h3>
-              <p class="text-base font-semibold text-center text-white mb-4">IDR
-                25K</p>
-              <a href="#contact"
-                class="w-full py-3 px-6 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 hover:shadow-lg inline-flex items-center justify-center">
-                Pesan Sekarang
-              </a>
+              <h3 class="text-xl font-bold mb-2 text-center">
+                <span
+                  class="text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">Macchiato</span>
+              </h3>
+              <p class="text-sm text-gray-400 mb-3 text-center">Espresso dengan sentuhan susu foam yang premium</p>
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-xl font-bold text-white">IDR 25K</span>
+                <div class="flex items-center text-yellow-400">
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <span class="text-sm ml-1">4.6</span>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <button onclick="event.stopPropagation(); openMenuModal('macchiato')"
+                  class="flex-1 py-2 px-4 bg-gradient-to-r from-[#b6895b]/20 to-[#d4af37]/20 backdrop-blur-sm border border-[#b6895b]/30 text-[#d4af37] rounded-full text-sm font-medium hover:bg-[#b6895b]/30 transition-all duration-300">
+                  Detail
+                </button>
+                <a href="#contact"
+                  class="flex-1 py-2 px-4 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white rounded-full text-sm font-medium hover:shadow-lg transition-all duration-300 text-center">
+                  Pesan
+                </a>
+              </div>
             </div>
           </div>
 
+          <!-- Cold Brew Card -->
           <div
-            class="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm">
+            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
+            onclick="openMenuModal('coldbrew')">
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-6">
                 <img src="img/menu/5.jpg" alt="Cold Brew"
-                  class="rounded-full w-32 h-32 mx-auto object-cover border-4 border-gray-600/50 group-hover:border-[#b6895b]/70 transition-colors duration-500 group-hover:scale-110 transform duration-500" />
+                  class="rounded-2xl w-full h-48 object-cover border-2 border-gray-600/30 group-hover:border-[#b6895b]/70 transition-colors duration-500 group-hover:scale-105 transform duration-500" />
                 <div
-                  class="absolute -top-2 -right-2 bg-blue-500 text-white text-xs px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">Cold</div>
+                  class="absolute -top-2 -right-2 bg-blue-500/80 backdrop-blur-md border border-blue-500/30 text-white text-xs px-3 py-1 rounded-full shadow-lg hover:shadow-blue-500/40">Cold</div>
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-2xl"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full p-3">
+                    <i data-feather="eye" class="w-6 h-6 text-white"></i>
+                  </div>
+                </div>
               </div>
-              <h3 class="text-xl font-bold mb-3 text-center">
+              <h3 class="text-xl font-bold mb-2 text-center">
                 <span
-                  class="text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">-
-                  Cold Brew -</span>
+                  class="text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">Cold Brew</span>
               </h3>
-              <p class="text-base font-semibold text-center text-white mb-4">IDR
-                20K</p>
-              <a href="#contact"
-                class="w-full py-3 px-6 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 hover:shadow-lg inline-flex items-center justify-center">
-                Pesan Sekarang
-              </a>
+              <p class="text-sm text-gray-400 mb-3 text-center">Kopi dingin dengan ekstraksi 24 jam yang smooth</p>
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-xl font-bold text-white">IDR 20K</span>
+                <div class="flex items-center text-yellow-400">
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <span class="text-sm ml-1">4.5</span>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <button onclick="event.stopPropagation(); openMenuModal('coldbrew')"
+                  class="flex-1 py-2 px-4 bg-gradient-to-r from-[#b6895b]/20 to-[#d4af37]/20 backdrop-blur-sm border border-[#b6895b]/30 text-[#d4af37] rounded-full text-sm font-medium hover:bg-[#b6895b]/30 transition-all duration-300">
+                  Detail
+                </button>
+                <a href="#contact"
+                  class="flex-1 py-2 px-4 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white rounded-full text-sm font-medium hover:shadow-lg transition-all duration-300 text-center">
+                  Pesan
+                </a>
+              </div>
             </div>
           </div>
 
+          <!-- Affogato Card -->
           <div
-            class="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm">
+            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
+            onclick="openMenuModal('affogato')">
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-6">
                 <img src="img/menu/6.jpg" alt="Affogato"
-                  class="rounded-full w-32 h-32 mx-auto object-cover border-4 border-gray-600/50 group-hover:border-[#b6895b]/70 transition-colors duration-500 group-hover:scale-110 transform duration-500" />
+                  class="rounded-2xl w-full h-48 object-cover border-2 border-gray-600/30 group-hover:border-[#b6895b]/70 transition-colors duration-500 group-hover:scale-105 transform duration-500" />
                 <div
-                  class="absolute -top-2 -right-2 bg-purple-500 text-white text-xs px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">Special</div>
+                  class="absolute -top-2 -right-2 bg-purple-500/80 backdrop-blur-md border border-purple-500/30 text-white text-xs px-3 py-1 rounded-full shadow-lg hover:shadow-purple-500/40">Special</div>
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-2xl"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full p-3">
+                    <i data-feather="eye" class="w-6 h-6 text-white"></i>
+                  </div>
+                </div>
               </div>
-              <h3
-                class="text-xl font-bold mb-3 text-center text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">-
-                Affogato -</h3>
-              <p class="text-base font-semibold text-center text-white mb-4">IDR
-                18K</p>
-              <a href="#contact"
-                class="w-full py-3 px-6 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 hover:shadow-lg inline-flex items-center justify-center">
-                Pesan Sekarang
-              </a>
+              <h3 class="text-xl font-bold mb-2 text-center">
+                <span
+                  class="text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">Affogato</span>
+              </h3>
+              <p class="text-sm text-gray-400 mb-3 text-center">Es krim vanilla yang disiram espresso panas</p>
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-xl font-bold text-white">IDR 18K</span>
+                <div class="flex items-center text-yellow-400">
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <span class="text-sm ml-1">4.8</span>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <button onclick="event.stopPropagation(); openMenuModal('affogato')"
+                  class="flex-1 py-2 px-4 bg-gradient-to-r from-[#b6895b]/20 to-[#d4af37]/20 backdrop-blur-sm border border-[#b6895b]/30 text-[#d4af37] rounded-full text-sm font-medium hover:bg-[#b6895b]/30 transition-all duration-300">
+                  Detail
+                </button>
+                <a href="#contact"
+                  class="flex-1 py-2 px-4 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white rounded-full text-sm font-medium hover:shadow-lg transition-all duration-300 text-center">
+                  Pesan
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -487,7 +607,7 @@
         <!-- Product Categories -->
         <div class="flex flex-wrap justify-center gap-4 mb-16">
           <button class="product-filter active px-6 py-3 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white rounded-full font-medium transition-all duration-300 hover:shadow-lg" data-filter="all">
-            Semua Produk
+            Semua   
           </button>
           <button class="product-filter px-6 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-600/30 text-gray-300 rounded-full font-medium transition-all duration-300 hover:bg-[#b6895b]/20 hover:text-white" data-filter="coffee-beans">
             Biji Kopi
@@ -511,7 +631,7 @@
             <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-4">
-                <img src="img/menu/1.jpg" alt="Arabica Premium Blend" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+                <img src="img/products/arabika.jpg" alt="Arabica Premium Blend" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
                 <div class="absolute -top-2 -right-2 bg-[#b6895b]/80 backdrop-blur-md border border-[#b6895b]/30 text-white text-xs px-3 py-1 rounded-full shadow-lg">
                   Premium
                 </div>
@@ -531,7 +651,7 @@
             <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-4">
-                <img src="img/menu/2.jpg" alt="Robusta Strong" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+                <img src="img/products/robusta.jpg" alt="Robusta Strong" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
                 <div class="absolute -top-2 -right-2 bg-red-500/80 backdrop-blur-md border border-red-500/30 text-white text-xs px-3 py-1 rounded-full shadow-lg">
                   Strong
                 </div>
@@ -552,7 +672,7 @@
             <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-4">
-                <img src="img/menu/3.jpg" alt="V60 Dripper Set" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+                <img src="img/products/dripper-set.jpg" alt="V60 Dripper Set" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
                 <div class="absolute -top-2 -right-2 bg-blue-500/80 backdrop-blur-md border border-blue-500/30 text-white text-xs px-3 py-1 rounded-full shadow-lg">
                   Professional
                 </div>
@@ -572,7 +692,7 @@
             <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-4">
-                <img src="img/menu/4.jpg" alt="French Press Premium" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+                <img src="img/products/french-press.jpg" alt="French Press Premium" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 class="text-lg font-bold mb-2 text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">
                 French Press Premium
@@ -590,7 +710,7 @@
             <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-4">
-                <img src="img/menu/5.jpg" alt="Kenangan Senja Mug" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+                <img src="img/products/mug.jpg" alt="Kenangan Senja Mug" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
                 <div class="absolute -top-2 -right-2 bg-purple-500/80 backdrop-blur-md border border-purple-500/30 text-white text-xs px-3 py-1 rounded-full shadow-lg">
                   Limited
                 </div>
@@ -610,7 +730,7 @@
             <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-4">
-                <img src="img/menu/6.jpg" alt="Canvas Tote Bag" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+                <img src="img/products/totebag.jpg" alt="Canvas Tote Bag" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 class="text-lg font-bold mb-2 text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">
                 Canvas Tote Bag
@@ -628,7 +748,7 @@
             <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-4">
-                <img src="img/menu/1.jpg" alt="Coffee Starter Set" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+                <img src="img/products/coffee-set.jpg" alt="Coffee Starter Set" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
                 <div class="absolute -top-2 -right-2 bg-green-500/80 backdrop-blur-md border border-green-500/30 text-white text-xs px-3 py-1 rounded-full shadow-lg">
                   Best Value
                 </div>
@@ -648,7 +768,7 @@
             <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-4">
-                <img src="img/menu/2.jpg" alt="Premium Gift Box" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+                <img src="img/products/coffee-pack.jpg" alt="Premium Gift Box" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
                 <div class="absolute -top-2 -right-2 bg-yellow-500/80 backdrop-blur-md border border-yellow-500/30 text-white text-xs px-3 py-1 rounded-full shadow-lg">
                   Exclusive
                 </div>
@@ -671,6 +791,13 @@
     <div id="productModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
       <div class="bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-gray-700/50 shadow-2xl transform scale-95 transition-all duration-300" id="modalContent">
         <!-- Modal content will be inserted here by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Menu Modal -->
+    <div id="menuModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
+      <div class="bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-2xl max-w-md w-full border border-gray-700/50 shadow-2xl transform scale-95 transition-all duration-300" id="menuModalContent">
+        <!-- Menu modal content will be inserted here by JavaScript -->
       </div>
     </div>
 

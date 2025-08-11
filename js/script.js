@@ -129,7 +129,7 @@ const productData = {
     name: 'Arabica Premium Blend',
     price: 'IDR 85K',
     weight: '250g',
-    image: 'img/menu/1.jpg',
+    image: 'img/products/arabika.jpg',
     category: 'Biji Kopi Premium',
     description: 'Biji kopi arabica pilihan yang dipetik dari ketinggian 1200-1800 mdpl dengan proses pengolahan yang sempurna. Memiliki karakteristik rasa yang kompleks dengan sentuhan fruity dan floral yang elegan.',
     features: [
@@ -146,7 +146,7 @@ const productData = {
     name: 'Robusta Strong',
     price: 'IDR 65K',
     weight: '250g',
-    image: 'img/menu/2.jpg',
+    image: 'img/products/robusta.jpg',
     category: 'Biji Kopi Strong',
     description: 'Kopi robusta dengan karakter kuat dan bold, perfect untuk pecinta kopi dengan intensitas tinggi. Menghadirkan body yang full dengan crema yang kental dan bertahan lama.',
     features: [
@@ -163,7 +163,7 @@ const productData = {
     name: 'V60 Dripper Set',
     price: 'IDR 350K',
     weight: 'Complete Set',
-    image: 'img/menu/3.jpg',
+    image: 'img/products/dripper-set.jpg',
     category: 'Professional Equipment',
     description: 'Set lengkap V60 dripper untuk manual brewing yang sempurna. Dirancang khusus untuk menghasilkan ekstraksi kopi yang optimal dengan kontrol penuh atas proses brewing.',
     features: [
@@ -181,7 +181,7 @@ const productData = {
     name: 'French Press Premium',
     price: 'IDR 275K',
     weight: '600ml',
-    image: 'img/menu/4.jpg',
+    image: 'img/products/french-press.jpg',
     category: 'Professional Equipment',
     description: 'French press berkualitas tinggi dengan material borosilicate glass dan frame stainless steel. Ideal untuk menghasilkan full body coffee dengan ekstraksi sempurna.',
     features: [
@@ -199,7 +199,7 @@ const productData = {
     name: 'Kenangan Senja Mug',
     price: 'IDR 125K',
     weight: '350ml',
-    image: 'img/menu/5.jpg',
+    image: 'img/products/mug.jpg',
     category: 'Limited Edition Merchandise',
     description: 'Mug eksklusif dengan logo Kenangan Senja yang elegan. Terbuat dari ceramic berkualitas tinggi dengan finishing matt yang premium dan comfortable grip.',
     features: [
@@ -217,7 +217,7 @@ const productData = {
     name: 'Canvas Tote Bag',
     price: 'IDR 185K',
     weight: 'Eco-friendly',
-    image: 'img/menu/6.jpg',
+    image: 'img/products/totebag.jpg',
     category: 'Sustainable Merchandise',
     description: 'Tas kanvas premium dengan desain minimalis yang versatile. Terbuat dari 100% organic cotton dengan printing ramah lingkungan.',
     features: [
@@ -235,7 +235,7 @@ const productData = {
     name: 'Coffee Starter Set',
     price: 'IDR 450K',
     weight: '6 Items',
-    image: 'img/menu/1.jpg',
+    image: 'img/products/coffee-set.jpg',
     category: 'Best Value Gift Set',
     description: 'Paket lengkap untuk pemula yang ingin memulai journey manual brewing. Berisi semua essential items dengan panduan brewing yang detail.',
     features: [
@@ -253,7 +253,7 @@ const productData = {
     name: 'Premium Gift Box',
     price: 'IDR 750K',
     weight: 'Luxury Pack',
-    image: 'img/menu/2.jpg',
+    image: 'img/products/coffee-pack.jpg',
     category: 'Exclusive Gift Set',
     description: 'Gift box mewah dengan koleksi produk premium dalam packaging yang elegan. Perfect untuk corporate gift atau special occasions.',
     features: [
@@ -389,5 +389,189 @@ document.getElementById('productModal').addEventListener('click', function(e) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
     closeProductModal();
+  }
+});
+
+// Menu Modal Functionality
+const menuData = {
+  'espresso': {
+    name: 'Espresso',
+    price: 'IDR 15K',
+    rating: '4.8',
+    image: 'img/menu/1.jpg',
+    category: 'Premium Single Shot',
+    description: 'Espresso klasik dengan teknik ekstraksi sempurna menggunakan biji kopi arabica pilihan. Menghasilkan crema golden yang thick dengan body rich dan aroma intense.',
+    details: {
+      volume: '30ml',
+      caffeine: '65mg'
+    }
+  },
+  'cappuccino': {
+    name: 'Cappuccino',
+    price: 'IDR 13K',
+    rating: '4.7',
+    image: 'img/menu/2.jpg',
+    category: 'Classic Milk Coffee',
+    description: 'Perpaduan sempurna antara espresso kuat dengan steamed milk creamy dan milk foam lembut. Ratio seimbang memberikan pengalaman rasa yang harmonis.',
+    details: {
+      volume: '150ml',
+      caffeine: '65mg'
+    }
+  },
+  'latte': {
+    name: 'Latte',
+    price: 'IDR 14K',
+    rating: '4.9',
+    image: 'img/menu/3.jpg',
+    category: 'Smooth Milk Coffee',
+    description: 'Kopi latte dengan single shot espresso yang di-blend dengan steamed milk smooth dan creamy. Finished dengan thin layer milk foam dan beautiful latte art.',
+    details: {
+      volume: '200ml',
+      caffeine: '65mg'
+    }
+  },
+  'macchiato': {
+    name: 'Macchiato',
+    price: 'IDR 25K',
+    rating: '4.6',
+    image: 'img/menu/4.jpg',
+    category: 'Premium Specialty',
+    description: 'Espresso macchiato premium dengan double shot espresso yang di-mark dengan foam milk light. Memberikan intensitas kopi kuat dengan sentuhan milk subtle.',
+    details: {
+      volume: '60ml',
+      caffeine: '130mg'
+    }
+  },
+  'coldbrew': {
+    name: 'Cold Brew',
+    price: 'IDR 20K',
+    rating: '4.5',
+    image: 'img/menu/5.jpg',
+    category: 'Cold Specialty',
+    description: 'Cold brew coffee yang di-ekstraksi selama 24 jam dengan metode cold water extraction. Menghasilkan kopi dingin yang smooth, less acidic, dan naturally sweet.',
+    details: {
+      volume: '250ml',
+      caffeine: '200mg'
+    }
+  },
+  'affogato': {
+    name: 'Affogato',
+    price: 'IDR 18K',
+    rating: '4.8',
+    image: 'img/menu/6.jpg',
+    category: 'Special Dessert Coffee',
+    description: 'Dessert coffee unik dengan vanilla ice cream premium yang di-drizzle dengan hot espresso shot. Kontras hot dan cold menciptakan pengalaman rasa memorable.',
+    details: {
+      volume: '120ml + 1 scoop',
+      caffeine: '65mg'
+    }
+  }
+};
+
+function openMenuModal(menuId) {
+  const modal = document.getElementById('menuModal');
+  const modalContent = document.getElementById('menuModalContent');
+  const menu = menuData[menuId];
+  
+  if (!menu) return;
+  
+  modalContent.innerHTML = `
+    <div class="relative p-6">
+      <!-- Close Button -->
+      <button onclick="closeMenuModal()" class="absolute top-4 right-4 z-10 w-8 h-8 bg-red-500/20 hover:bg-red-500/40 backdrop-blur-sm border border-red-500/30 rounded-full flex items-center justify-center text-red-400 hover:text-red-300 transition-all duration-300">
+        <i data-feather="x" class="w-4 h-4"></i>
+      </button>
+      
+      <!-- Menu Image -->
+      <div class="text-center mb-4">
+        <img src="${menu.image}" alt="${menu.name}" class="w-24 h-24 object-cover rounded-full mx-auto border-4 border-[#b6895b]/30 shadow-lg">
+      </div>
+      
+      <!-- Menu Info -->
+      <div class="text-center mb-4">
+        <h2 class="text-2xl font-bold text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text mb-2">
+          ${menu.name}
+        </h2>
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="text-xl font-bold text-white">${menu.price}</span>
+          <div class="flex items-center text-yellow-400">
+            <i data-feather="star" class="w-4 h-4 fill-current mr-1"></i>
+            <span class="text-sm font-medium">${menu.rating}</span>
+          </div>
+        </div>
+        <span class="inline-block bg-[#b6895b]/20 backdrop-blur-sm border border-[#b6895b]/30 text-[#d4af37] px-3 py-1 rounded-full text-sm">
+          ${menu.category}
+        </span>
+      </div>
+      
+      <!-- Simple Description -->
+      <div class="text-center mb-6">
+        <p class="text-gray-300 text-sm leading-relaxed">
+          ${menu.description}
+        </p>
+      </div>
+      
+      <!-- Key Details -->
+      <div class="grid grid-cols-2 gap-3 mb-6">
+        <div class="text-center">
+          <div class="text-[#d4af37] text-xs font-medium mb-1">Volume</div>
+          <div class="text-white text-sm">${menu.details.volume}</div>
+        </div>
+        <div class="text-center">
+          <div class="text-[#d4af37] text-xs font-medium mb-1">Caffeine</div>
+          <div class="text-white text-sm">${menu.details.caffeine}</div>
+        </div>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="flex gap-3">
+        <button class="flex-1 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white px-4 py-3 rounded-full font-medium hover:shadow-lg hover:shadow-[#b6895b]/40 transition-all duration-300 transform hover:scale-105">
+          Tambah ke Keranjang
+        </button>
+        <a href="#contact" onclick="closeMenuModal()" class="flex-1 bg-gray-800/50 backdrop-blur-sm border border-gray-600/30 text-white px-4 py-3 rounded-full font-medium hover:bg-[#b6895b]/20 transition-all duration-300 text-center">
+          Pesan Sekarang
+        </a>
+      </div>
+    </div>
+  `;
+  
+  // Reinitialize Feather icons for the modal content
+  feather.replace();
+  
+  // Show modal with animation
+  modal.classList.remove('opacity-0', 'invisible');
+  modal.classList.add('opacity-100', 'visible');
+  modalContent.classList.remove('scale-95');
+  modalContent.classList.add('scale-100');
+  
+  // Prevent background scrolling
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMenuModal() {
+  const modal = document.getElementById('menuModal');
+  const modalContent = document.getElementById('menuModalContent');
+  
+  // Hide modal with animation
+  modal.classList.remove('opacity-100', 'visible');
+  modal.classList.add('opacity-0', 'invisible');
+  modalContent.classList.remove('scale-100');
+  modalContent.classList.add('scale-95');
+  
+  // Restore background scrolling
+  document.body.style.overflow = 'auto';
+}
+
+// Close menu modal when clicking outside
+document.getElementById('menuModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeMenuModal();
+  }
+});
+
+// Close menu modal with Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeMenuModal();
   }
 });
