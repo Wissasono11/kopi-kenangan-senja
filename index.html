@@ -17,6 +17,40 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/style.css" />
+    
+    <!-- Performance Optimization Styles -->
+    <style>
+      /* GPU acceleration for transforms */
+      .will-change-transform {
+        will-change: transform;
+      }
+      
+      /* Reduce motion for accessibility and performance */
+      @media (prefers-reduced-motion: reduce) {
+        .product-item {
+          transition: none !important;
+        }
+        .product-item img {
+          transition: none !important;
+        }
+      }
+      
+      /* Image loading optimization */
+      img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: optimize-contrast;
+      }
+      
+      /* Smooth scrolling optimization */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Contain layout shifts */
+      .product-item {
+        contain: layout style;
+      }
+    </style>
 
     <!-- Feather Icons -->
     <script
@@ -324,7 +358,7 @@
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 justify-items-center max-w-5xl mx-auto">
           <!-- Espresso Card -->
           <div
-            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
+            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-300 transform hover:scale-[1.02] shadow-2xl will-change-transform hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
             onclick="openMenuModal('espresso')">
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -368,7 +402,7 @@
 
           <!-- Cappucino Card -->
           <div
-            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
+            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-300 transform hover:scale-[1.02] shadow-2xl will-change-transform hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
             onclick="openMenuModal('cappuccino')">
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -410,7 +444,7 @@
 
           <!-- Latte Card -->
           <div
-            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
+            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-300 transform hover:scale-[1.02] shadow-2xl will-change-transform hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
             onclick="openMenuModal('latte')">
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -452,7 +486,7 @@
 
           <!-- Macchiato Card -->
           <div
-            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
+            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-300 transform hover:scale-[1.02] shadow-2xl will-change-transform hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
             onclick="openMenuModal('macchiato')">
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -496,7 +530,7 @@
 
           <!-- Cold Brew Card -->
           <div
-            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
+            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-300 transform hover:scale-[1.02] shadow-2xl will-change-transform hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
             onclick="openMenuModal('coldbrew')">
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -540,7 +574,7 @@
 
           <!-- Affogato Card -->
           <div
-            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
+            class="menu-item group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-300 transform hover:scale-[1.02] shadow-2xl will-change-transform hover:shadow-[#b6895b]/20 w-full max-w-sm cursor-pointer"
             onclick="openMenuModal('affogato')">
             <div
               class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -627,11 +661,11 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
           
           <!-- Coffee Beans Products -->
-          <div class="product-item coffee-beans group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 cursor-pointer" onclick="openProductModal('arabica-blend')">
-            <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="product-item coffee-beans group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-300 transform hover:scale-[1.02] shadow-2xl hover:shadow-[#b6895b]/20 cursor-pointer will-change-transform" onclick="openProductModal('arabica-blend')">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div class="relative z-10">
-              <div class="relative mb-4">
-                <img src="img/products/arabika.jpg" alt="Arabica Premium Blend" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+              <div class="relative mb-4 overflow-hidden rounded-2xl">
+                <img loading="lazy" src="img/products/arabika.jpg" alt="Arabica Premium Blend" class="w-full h-48 object-cover transition-transform duration-300 will-change-transform group-hover:scale-105" />
                 <div class="absolute -top-2 -right-2 bg-[#b6895b]/80 backdrop-blur-md border border-[#b6895b]/30 text-white text-xs px-3 py-1 rounded-full shadow-lg">
                   Premium
                 </div>
@@ -647,11 +681,11 @@
             </div>
           </div>
 
-          <div class="product-item coffee-beans group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 cursor-pointer" onclick="openProductModal('robusta-strong')">
-            <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="product-item coffee-beans group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-300 transform hover:scale-[1.02] shadow-2xl hover:shadow-[#b6895b]/20 cursor-pointer will-change-transform" onclick="openProductModal('robusta-strong')">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div class="relative z-10">
-              <div class="relative mb-4">
-                <img src="img/products/robusta.jpg" alt="Robusta Strong" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+              <div class="relative mb-4 overflow-hidden rounded-2xl">
+                <img loading="lazy" src="img/products/robusta.jpg" alt="Robusta Strong" class="w-full h-48 object-cover transition-transform duration-300 will-change-transform group-hover:scale-105" />
                 <div class="absolute -top-2 -right-2 bg-red-500/80 backdrop-blur-md border border-red-500/30 text-white text-xs px-3 py-1 rounded-full shadow-lg">
                   Strong
                 </div>
@@ -668,11 +702,11 @@
           </div>
 
           <!-- Equipment Products -->
-          <div class="product-item equipment group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 cursor-pointer" onclick="openProductModal('v60-dripper')">
+          <div class="product-item equipment group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-300 transform hover:scale-[1.02] shadow-2xl will-change-transform hover:shadow-[#b6895b]/20 cursor-pointer" onclick="openProductModal('v60-dripper')">
             <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-4">
-                <img src="img/products/dripper-set.jpg" alt="V60 Dripper Set" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+                <img loading="lazy" src="img/products/dripper-set.jpg" alt="V60 Dripper Set" class="w-full h-48 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300 will-change-transform" />
                 <div class="absolute -top-2 -right-2 bg-blue-500/80 backdrop-blur-md border border-blue-500/30 text-white text-xs px-3 py-1 rounded-full shadow-lg">
                   Professional
                 </div>
@@ -688,11 +722,11 @@
             </div>
           </div>
 
-          <div class="product-item equipment group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 cursor-pointer" onclick="openProductModal('french-press')">
+          <div class="product-item equipment group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-300 transform hover:scale-[1.02] shadow-2xl will-change-transform hover:shadow-[#b6895b]/20 cursor-pointer" onclick="openProductModal('french-press')">
             <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-4">
-                <img src="img/products/french-press.jpg" alt="French Press Premium" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+                <img loading="lazy" src="img/products/french-press.jpg" alt="French Press Premium" class="w-full h-48 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300 will-change-transform" />
               </div>
               <h3 class="text-lg font-bold mb-2 text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">
                 French Press Premium
@@ -706,11 +740,11 @@
           </div>
 
           <!-- Merchandise Products -->
-          <div class="product-item merchandise group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 cursor-pointer" onclick="openProductModal('coffee-mug')">
+          <div class="product-item merchandise group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-300 transform hover:scale-[1.02] shadow-2xl will-change-transform hover:shadow-[#b6895b]/20 cursor-pointer" onclick="openProductModal('coffee-mug')">
             <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-4">
-                <img src="img/products/mug.jpg" alt="Kenangan Senja Mug" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+                <img loading="lazy" src="img/products/mug.jpg" alt="Kenangan Senja Mug" class="w-full h-48 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300 will-change-transform" />
                 <div class="absolute -top-2 -right-2 bg-purple-500/80 backdrop-blur-md border border-purple-500/30 text-white text-xs px-3 py-1 rounded-full shadow-lg">
                   Limited
                 </div>
@@ -726,11 +760,11 @@
             </div>
           </div>
 
-          <div class="product-item merchandise group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 cursor-pointer" onclick="openProductModal('tote-bag')">
+          <div class="product-item merchandise group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-300 transform hover:scale-[1.02] shadow-2xl will-change-transform hover:shadow-[#b6895b]/20 cursor-pointer" onclick="openProductModal('tote-bag')">
             <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-4">
-                <img src="img/products/totebag.jpg" alt="Canvas Tote Bag" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+                <img loading="lazy" src="img/products/totebag.jpg" alt="Canvas Tote Bag" class="w-full h-48 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300 will-change-transform" />
               </div>
               <h3 class="text-lg font-bold mb-2 text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">
                 Canvas Tote Bag
@@ -744,11 +778,11 @@
           </div>
 
           <!-- Gift Sets Products -->
-          <div class="product-item gift-sets group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 cursor-pointer" onclick="openProductModal('starter-set')">
+          <div class="product-item gift-sets group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-300 transform hover:scale-[1.02] shadow-2xl will-change-transform hover:shadow-[#b6895b]/20 cursor-pointer" onclick="openProductModal('starter-set')">
             <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-4">
-                <img src="img/products/coffee-set.jpg" alt="Coffee Starter Set" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+                <img loading="lazy" src="img/products/coffee-set.jpg" alt="Coffee Starter Set" class="w-full h-48 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300 will-change-transform" />
                 <div class="absolute -top-2 -right-2 bg-green-500/80 backdrop-blur-md border border-green-500/30 text-white text-xs px-3 py-1 rounded-full shadow-lg">
                   Best Value
                 </div>
@@ -764,11 +798,11 @@
             </div>
           </div>
 
-          <div class="product-item gift-sets group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-[#b6895b]/20 cursor-pointer" onclick="openProductModal('premium-gift')">
+          <div class="product-item gift-sets group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm p-6 rounded-3xl border border-gray-700/30 hover:border-[#b6895b]/50 transition-all duration-300 transform hover:scale-[1.02] shadow-2xl will-change-transform hover:shadow-[#b6895b]/20 cursor-pointer" onclick="openProductModal('premium-gift')">
             <div class="absolute inset-0 bg-gradient-to-br from-[#b6895b]/5 to-[#d4af37]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative z-10">
               <div class="relative mb-4">
-                <img src="img/products/coffee-pack.jpg" alt="Premium Gift Box" class="w-full h-48 object-cover rounded-2xl group-hover:scale-110 transition-transform duration-500" />
+                <img loading="lazy" src="img/products/coffee-pack.jpg" alt="Premium Gift Box" class="w-full h-48 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300 will-change-transform" />
                 <div class="absolute -top-2 -right-2 bg-yellow-500/80 backdrop-blur-md border border-yellow-500/30 text-white text-xs px-3 py-1 rounded-full shadow-lg">
                   Exclusive
                 </div>

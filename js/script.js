@@ -1,4 +1,4 @@
-// Modern Navbar JavaScript
+// Modern Navbar JavaScript with Performance Optimizations
 document.addEventListener('DOMContentLoaded', function() {
   // Get elements
   const navbarNav = document.querySelector(".navbar-nav");
@@ -79,19 +79,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Navbar background change on scroll
+  // Navbar background change on scroll with throttling for better performance
+  let scrollTimeout;
   window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('nav > div');
-    if (window.scrollY > 50) {
-      navbar.classList.add('bg-gray-900/98');
-      navbar.classList.remove('bg-gray-900/95');
-    } else {
-      navbar.classList.add('bg-gray-900/95');
+    if (!scrollTimeout) {
+      scrollTimeout = setTimeout(() => {
+        const navbar = document.querySelector('nav > div');
+        if (window.scrollY > 50) {
+          navbar.classList.add('bg-gray-900/98');
+          navbar.classList.remove('bg-gray-900/95');
+        } else {
+          navbar.classList.add('bg-gray-900/95');
+          navbar.classList.remove('bg-gray-900/98');
+        }
+        scrollTimeout = null;
+      }, 10);
     }
-  });
+  }, { passive: true });
 });
 
-// Products Section JavaScript
+// Products Section JavaScript with Performance Optimizations
 document.addEventListener('DOMContentLoaded', function() {
   // Product Filter Functionality
   const filterButtons = document.querySelectorAll('.product-filter');
@@ -101,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
     button.addEventListener('click', function() {
       const filter = this.getAttribute('data-filter');
       
-      // Update active filter button
+      // Update active filter button with better performance
       filterButtons.forEach(btn => {
         btn.classList.remove('bg-gradient-to-r', 'from-[#b6895b]', 'to-[#d4af37]', 'text-white', 'active');
         btn.classList.add('bg-gray-800/50', 'text-gray-300');
@@ -110,20 +117,36 @@ document.addEventListener('DOMContentLoaded', function() {
       this.classList.add('bg-gradient-to-r', 'from-[#b6895b]', 'to-[#d4af37]', 'text-white', 'active');
       this.classList.remove('bg-gray-800/50', 'text-gray-300');
       
-      // Filter products
-      productItems.forEach(item => {
-        if (filter === 'all' || item.classList.contains(filter)) {
-          item.style.display = 'block';
-          item.style.animation = 'fadeInUp 0.5s ease-out';
-        } else {
-          item.style.display = 'none';
-        }
+      // Filter products with optimized performance
+      requestAnimationFrame(() => {
+        productItems.forEach((item, index) => {
+          if (filter === 'all' || item.classList.contains(filter)) {
+            item.style.display = 'block';
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            
+            // Stagger animation for smoother effect
+            setTimeout(() => {
+              item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            }, index * 50);
+          } else {
+            item.style.transition = 'opacity 0.2s ease';
+            item.style.opacity = '0';
+            setTimeout(() => {
+              if (item.style.opacity === '0') {
+                item.style.display = 'none';
+              }
+            }, 200);
+          }
+        });
       });
     });
   });
 });
 
-// Product Modal Functionality
+// Product Modal Functionality with Performance Optimizations
 const productData = {
   'arabica-blend': {
     name: 'Arabica Premium Blend',
@@ -269,99 +292,117 @@ const productData = {
   }
 };
 
+// Modal performance optimization
+let isModalOpening = false;
+
 function openProductModal(productId) {
+  // Prevent rapid modal openings
+  if (isModalOpening) return;
+  isModalOpening = true;
+  
   const modal = document.getElementById('productModal');
   const modalContent = document.getElementById('modalContent');
   const product = productData[productId];
   
-  if (!product) return;
+  if (!product) {
+    isModalOpening = false;
+    return;
+  }
   
-  modalContent.innerHTML = `
-    <div class="relative">
-      <!-- Close Button -->
-      <button onclick="closeProductModal()" class="absolute top-6 right-6 z-10 w-10 h-10 bg-red-500/20 hover:bg-red-500/40 backdrop-blur-sm border border-red-500/30 rounded-full flex items-center justify-center text-red-400 hover:text-red-300 transition-all duration-300">
-        <i data-feather="x" class="w-5 h-5"></i>
-      </button>
-      
-      <!-- Modal Content -->
-      <div class="flex flex-col lg:flex-row gap-8 p-8">
-        <!-- Product Image -->
-        <div class="lg:w-1/2">
-          <img src="${product.image}" alt="${product.name}" class="w-full h-80 lg:h-96 object-cover rounded-2xl shadow-2xl">
-          <div class="mt-4 text-center">
-            <span class="inline-block bg-[#b6895b]/20 backdrop-blur-sm border border-[#b6895b]/30 text-[#d4af37] px-4 py-2 rounded-full text-sm font-medium">
-              ${product.category}
-            </span>
-          </div>
-        </div>
+  // Use requestAnimationFrame for smoother rendering
+  requestAnimationFrame(() => {
+    modalContent.innerHTML = `
+      <div class="relative">
+        <!-- Close Button -->
+        <button onclick="closeProductModal()" class="absolute top-6 right-6 z-10 w-10 h-10 bg-red-500/20 hover:bg-red-500/40 backdrop-blur-sm border border-red-500/30 rounded-full flex items-center justify-center text-red-400 hover:text-red-300 transition-all duration-300">
+          <i data-feather="x" class="w-5 h-5"></i>
+        </button>
         
-        <!-- Product Details -->
-        <div class="lg:w-1/2 space-y-6">
-          <div>
-            <h2 class="text-3xl font-bold text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text mb-2">
-              ${product.name}
-            </h2>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-2xl font-bold text-white">${product.price}</span>
-              <span class="text-gray-400">${product.weight}</span>
+        <!-- Modal Content -->
+        <div class="flex flex-col lg:flex-row gap-8 p-8">
+          <!-- Product Image -->
+          <div class="lg:w-1/2">
+            <img src="${product.image}" alt="${product.name}" class="w-full h-80 lg:h-96 object-cover rounded-2xl shadow-2xl">
+            <div class="mt-4 text-center">
+              <span class="inline-block bg-[#b6895b]/20 backdrop-blur-sm border border-[#b6895b]/30 text-[#d4af37] px-4 py-2 rounded-full text-sm font-medium">
+                ${product.category}
+              </span>
             </div>
           </div>
           
-          <!-- Description -->
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-3">Deskripsi Produk</h3>
-            <p class="text-gray-300 leading-relaxed text-justify">
-              ${product.description}
-            </p>
-          </div>
-          
-          <!-- Features -->
-          <div>
-            <h3 class="text-lg font-semibold text-white mb-3">Fitur & Spesifikasi</h3>
-            <ul class="space-y-2 text-gray-300">
-              ${product.features.map(feature => `<li class="text-sm">${feature}</li>`).join('')}
-            </ul>
-          </div>
-          
-          <!-- Additional Info -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-gray-700/50">
+          <!-- Product Details -->
+          <div class="lg:w-1/2 space-y-6">
             <div>
-              <h4 class="font-semibold text-[#d4af37] mb-1">Brewing Method</h4>
-              <p class="text-sm text-gray-400">${product.brewing}</p>
+              <h2 class="text-3xl font-bold text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text mb-2">
+                ${product.name}
+              </h2>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-2xl font-bold text-white">${product.price}</span>
+                <span class="text-gray-400">${product.weight}</span>
+              </div>
             </div>
+            
+            <!-- Description -->
             <div>
-              <h4 class="font-semibold text-[#d4af37] mb-1">Origin</h4>
-              <p class="text-sm text-gray-400">${product.origin}</p>
+              <h3 class="text-lg font-semibold text-white mb-3">Deskripsi Produk</h3>
+              <p class="text-gray-300 leading-relaxed text-justify">
+                ${product.description}
+              </p>
             </div>
-          </div>
-          
-          <!-- Action Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 pt-6">
-            <button class="bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white px-4 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-[#b6895b]/40 transition-all duration-300 transform hover:scale-105 flex items-center justify-center">
-              <i data-feather="shopping-cart" class="w-5 h-5 mr-3"></i>
-              Tambah ke Keranjang
-            </button>
-            <a href="#contact" onclick="closeProductModal()" class="bg-gray-800/50 backdrop-blur-sm border border-gray-600/30 text-white px-4 py-4 rounded-full font-semibold hover:bg-[#b6895b]/20 transition-all duration-300 flex items-center justify-center">
-              <i data-feather="message-circle" class="w-5 h-5 mr-3"></i>
-              Tanya Detail
-            </a>
+            
+            <!-- Features -->
+            <div>
+              <h3 class="text-lg font-semibold text-white mb-3">Fitur & Spesifikasi</h3>
+              <ul class="space-y-2 text-gray-300">
+                ${product.features.map(feature => `<li class="text-sm">${feature}</li>`).join('')}
+              </ul>
+            </div>
+            
+            <!-- Additional Info -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-gray-700/50">
+              <div>
+                <h4 class="font-semibold text-[#d4af37] mb-1">Brewing Method</h4>
+                <p class="text-sm text-gray-400">${product.brewing}</p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-[#d4af37] mb-1">Origin</h4>
+                <p class="text-sm text-gray-400">${product.origin}</p>
+              </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 pt-6">
+              <button class="bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white px-4 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-[#b6895b]/40 transition-all duration-300 transform hover:scale-105 flex items-center justify-center">
+                <i data-feather="shopping-cart" class="w-5 h-5 mr-3"></i>
+                Tambah ke Keranjang
+              </button>
+              <a href="#contact" onclick="closeProductModal()" class="bg-gray-800/50 backdrop-blur-sm border border-gray-600/30 text-white px-4 py-4 rounded-full font-semibold hover:bg-[#b6895b]/20 transition-all duration-300 flex items-center justify-center">
+                <i data-feather="message-circle" class="w-5 h-5 mr-3"></i>
+                Tanya Detail
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  `;
-  
-  // Reinitialize Feather icons for the modal content
-  feather.replace();
-  
-  // Show modal with animation
-  modal.classList.remove('opacity-0', 'invisible');
-  modal.classList.add('opacity-100', 'visible');
-  modalContent.classList.remove('scale-95');
-  modalContent.classList.add('scale-100');
-  
-  // Prevent background scrolling
-  document.body.style.overflow = 'hidden';
+    `;
+    
+    // Reinitialize Feather icons for the modal content
+    feather.replace();
+    
+    // Show modal with animation
+    modal.classList.remove('opacity-0', 'invisible');
+    modal.classList.add('opacity-100', 'visible');
+    modalContent.classList.remove('scale-95');
+    modalContent.classList.add('scale-100');
+    
+    // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
+    
+    // Reset opening flag after animation
+    setTimeout(() => {
+      isModalOpening = false;
+    }, 300);
+  });
 }
 
 function closeProductModal() {
@@ -376,6 +417,9 @@ function closeProductModal() {
   
   // Restore background scrolling
   document.body.style.overflow = 'auto';
+  
+  // Reset modal opening flag
+  isModalOpening = false;
 }
 
 // Close modal when clicking outside
@@ -392,7 +436,7 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-// Menu Modal Functionality
+// Menu Modal Functionality - Simplified for Better Performance
 const menuData = {
   'espresso': {
     name: 'Espresso',
@@ -468,84 +512,101 @@ const menuData = {
   }
 };
 
+let isMenuModalOpening = false;
+
 function openMenuModal(menuId) {
+  // Prevent rapid modal openings
+  if (isMenuModalOpening) return;
+  isMenuModalOpening = true;
+  
   const modal = document.getElementById('menuModal');
   const modalContent = document.getElementById('menuModalContent');
   const menu = menuData[menuId];
   
-  if (!menu) return;
+  if (!menu) {
+    isMenuModalOpening = false;
+    return;
+  }
   
-  modalContent.innerHTML = `
-    <div class="relative p-6">
-      <!-- Close Button -->
-      <button onclick="closeMenuModal()" class="absolute top-4 right-4 z-10 w-8 h-8 bg-red-500/20 hover:bg-red-500/40 backdrop-blur-sm border border-red-500/30 rounded-full flex items-center justify-center text-red-400 hover:text-red-300 transition-all duration-300">
-        <i data-feather="x" class="w-4 h-4"></i>
-      </button>
-      
-      <!-- Menu Image -->
-      <div class="text-center mb-4">
-        <img src="${menu.image}" alt="${menu.name}" class="w-24 h-24 object-cover rounded-full mx-auto border-4 border-[#b6895b]/30 shadow-lg">
-      </div>
-      
-      <!-- Menu Info -->
-      <div class="text-center mb-4">
-        <h2 class="text-2xl font-bold text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text mb-2">
-          ${menu.name}
-        </h2>
-        <div class="flex items-center justify-center gap-4 mb-3">
-          <span class="text-xl font-bold text-white">${menu.price}</span>
-          <div class="flex items-center text-yellow-400">
-            <i data-feather="star" class="w-4 h-4 fill-current mr-1"></i>
-            <span class="text-sm font-medium">${menu.rating}</span>
+  // Use requestAnimationFrame for smoother rendering
+  requestAnimationFrame(() => {
+    modalContent.innerHTML = `
+      <div class="relative p-6">
+        <!-- Close Button -->
+        <button onclick="closeMenuModal()" class="absolute top-4 right-4 z-10 w-8 h-8 bg-red-500/20 hover:bg-red-500/40 backdrop-blur-sm border border-red-500/30 rounded-full flex items-center justify-center text-red-400 hover:text-red-300 transition-all duration-300">
+          <i data-feather="x" class="w-4 h-4"></i>
+        </button>
+        
+        <!-- Menu Image -->
+        <div class="text-center mb-4">
+          <img src="${menu.image}" alt="${menu.name}" class="w-24 h-24 object-cover rounded-full mx-auto border-4 border-[#b6895b]/30 shadow-lg">
+        </div>
+        
+        <!-- Menu Info -->
+        <div class="text-center mb-4">
+          <h2 class="text-2xl font-bold text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text mb-2">
+            ${menu.name}
+          </h2>
+          <div class="flex items-center justify-center gap-4 mb-3">
+            <span class="text-xl font-bold text-white">${menu.price}</span>
+            <div class="flex items-center text-yellow-400">
+              <i data-feather="star" class="w-4 h-4 fill-current mr-1"></i>
+              <span class="text-sm font-medium">${menu.rating}</span>
+            </div>
+          </div>
+          <span class="inline-block bg-[#b6895b]/20 backdrop-blur-sm border border-[#b6895b]/30 text-[#d4af37] px-3 py-1 rounded-full text-sm">
+            ${menu.category}
+          </span>
+        </div>
+        
+        <!-- Simple Description -->
+        <div class="text-center mb-6">
+          <p class="text-gray-300 text-sm leading-relaxed">
+            ${menu.description}
+          </p>
+        </div>
+        
+        <!-- Key Details -->
+        <div class="grid grid-cols-2 gap-3 mb-6">
+          <div class="text-center">
+            <div class="text-[#d4af37] text-xs font-medium mb-1">Volume</div>
+            <div class="text-white text-sm">${menu.details.volume}</div>
+          </div>
+          <div class="text-center">
+            <div class="text-[#d4af37] text-xs font-medium mb-1">Caffeine</div>
+            <div class="text-white text-sm">${menu.details.caffeine}</div>
           </div>
         </div>
-        <span class="inline-block bg-[#b6895b]/20 backdrop-blur-sm border border-[#b6895b]/30 text-[#d4af37] px-3 py-1 rounded-full text-sm">
-          ${menu.category}
-        </span>
-      </div>
-      
-      <!-- Simple Description -->
-      <div class="text-center mb-6">
-        <p class="text-gray-300 text-sm leading-relaxed">
-          ${menu.description}
-        </p>
-      </div>
-      
-      <!-- Key Details -->
-      <div class="grid grid-cols-2 gap-3 mb-6">
-        <div class="text-center">
-          <div class="text-[#d4af37] text-xs font-medium mb-1">Volume</div>
-          <div class="text-white text-sm">${menu.details.volume}</div>
-        </div>
-        <div class="text-center">
-          <div class="text-[#d4af37] text-xs font-medium mb-1">Caffeine</div>
-          <div class="text-white text-sm">${menu.details.caffeine}</div>
+        
+        <!-- Action Buttons -->
+        <div class="flex gap-3">
+          <button class="flex-1 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white px-4 py-3 rounded-full font-medium hover:shadow-lg hover:shadow-[#b6895b]/40 transition-all duration-300 transform hover:scale-105">
+            Tambah ke Keranjang
+          </button>
+          <a href="#contact" onclick="closeMenuModal()" class="flex-1 bg-gray-800/50 backdrop-blur-sm border border-gray-600/30 text-white px-4 py-3 rounded-full font-medium hover:bg-[#b6895b]/20 transition-all duration-300 text-center">
+            Pesan Sekarang
+          </a>
         </div>
       </div>
-      
-      <!-- Action Buttons -->
-      <div class="flex gap-3">
-        <button class="flex-1 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white px-4 py-3 rounded-full font-medium hover:shadow-lg hover:shadow-[#b6895b]/40 transition-all duration-300 transform hover:scale-105">
-          Tambah ke Keranjang
-        </button>
-        <a href="#contact" onclick="closeMenuModal()" class="flex-1 bg-gray-800/50 backdrop-blur-sm border border-gray-600/30 text-white px-4 py-3 rounded-full font-medium hover:bg-[#b6895b]/20 transition-all duration-300 text-center">
-          Pesan Sekarang
-        </a>
-      </div>
-    </div>
-  `;
-  
-  // Reinitialize Feather icons for the modal content
-  feather.replace();
-  
-  // Show modal with animation
-  modal.classList.remove('opacity-0', 'invisible');
-  modal.classList.add('opacity-100', 'visible');
-  modalContent.classList.remove('scale-95');
-  modalContent.classList.add('scale-100');
-  
-  // Prevent background scrolling
-  document.body.style.overflow = 'hidden';
+    `;
+    
+    // Reinitialize Feather icons for the modal content
+    feather.replace();
+    
+    // Show modal with animation
+    modal.classList.remove('opacity-0', 'invisible');
+    modal.classList.add('opacity-100', 'visible');
+    modalContent.classList.remove('scale-95');
+    modalContent.classList.add('scale-100');
+    
+    // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
+    
+    // Reset opening flag after animation
+    setTimeout(() => {
+      isMenuModalOpening = false;
+    }, 300);
+  });
 }
 
 function closeMenuModal() {
@@ -560,6 +621,9 @@ function closeMenuModal() {
   
   // Restore background scrolling
   document.body.style.overflow = 'auto';
+  
+  // Reset modal opening flag
+  isMenuModalOpening = false;
 }
 
 // Close menu modal when clicking outside
