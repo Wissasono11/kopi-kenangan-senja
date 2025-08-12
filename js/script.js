@@ -585,7 +585,7 @@ function openMenuModal(menuId) {
           </a>
           <a href="#contact" onclick="closeMenuModal()" class="lg:flex-1 w-fit bg-gray-800/50 backdrop-blur-sm border border-gray-600/30 text-white px-4 py-3 rounded-full font-medium hover:bg-[#b6895b]/20 transition-all duration-300 text-center">
             Pesan Sekarang
-          </a>
+          </a>  
         </div>
       </div>
     `;
@@ -637,5 +637,403 @@ document.getElementById('menuModal').addEventListener('click', function(e) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
     closeMenuModal();
+    closeSearchModal();
   }
 });
+
+// Search data - Menu items
+const menuItems = [
+  {
+    id: 'espresso',
+    name: 'Espresso',
+    description: 'Premium single shot espresso dengan crema sempurna',
+    price: 'IDR 15K',
+    image: 'img/menu/1.jpg',
+    rating: 4.8,
+    category: 'menu',
+    type: 'coffee',
+    keywords: ['espresso', 'kopi', 'coffee', 'premium', 'single shot', 'crema']
+  },
+  {
+    id: 'cappuccino',
+    name: 'Cappuccino',
+    description: 'Espresso dengan susu steamed dan foam yang lembut',
+    price: 'IDR 13K',
+    image: 'img/menu/2.jpg',
+    rating: 4.7,
+    category: 'menu',
+    type: 'coffee',
+    keywords: ['cappuccino', 'kopi', 'coffee', 'susu', 'milk', 'foam', 'steamed']
+  },
+  {
+    id: 'latte',
+    name: 'Latte',
+    description: 'Espresso dengan steamed milk dan latte art yang indah',
+    price: 'IDR 14K',
+    image: 'img/menu/3.jpg',
+    rating: 4.9,
+    category: 'menu',
+    type: 'coffee',
+    keywords: ['latte', 'kopi', 'coffee', 'susu', 'milk', 'art', 'steamed']
+  },
+  {
+    id: 'macchiato',
+    name: 'Macchiato',
+    description: 'Espresso dengan sentuhan susu foam yang premium',
+    price: 'IDR 25K',
+    image: 'img/menu/4.jpg',
+    rating: 4.6,
+    category: 'menu',
+    type: 'coffee',
+    keywords: ['macchiato', 'kopi', 'coffee', 'foam', 'premium', 'espresso']
+  },
+  {
+    id: 'coldbrew',
+    name: 'Cold Brew',
+    description: 'Kopi dingin dengan ekstraksi 24 jam yang smooth',
+    price: 'IDR 20K',
+    image: 'img/menu/5.jpg',
+    rating: 4.5,
+    category: 'menu',
+    type: 'coffee',
+    keywords: ['cold brew', 'kopi dingin', 'dingin', 'cold', 'ekstraksi', 'smooth', '24 jam']
+  },
+  {
+    id: 'affogato',
+    name: 'Affogato',
+    description: 'Es krim vanilla yang disiram espresso panas',
+    price: 'IDR 18K',
+    image: 'img/menu/6.jpg',
+    rating: 4.8,
+    category: 'menu',
+    type: 'dessert',
+    keywords: ['affogato', 'es krim', 'vanilla', 'espresso', 'dessert', 'panas', 'ice cream']
+  }
+];
+
+// Search data - Product items
+const productItems = [
+  {
+    id: 'arabica-blend',
+    name: 'Arabica Premium Blend',
+    description: 'Biji kopi arabica pilihan dengan cita rasa kompleks',
+    price: 'IDR 85K',
+    image: 'img/products/arabika.jpg',
+    rating: 4.9,
+    category: 'products',
+    type: 'coffee-beans',
+    keywords: ['arabica', 'premium', 'blend', 'biji kopi', 'kompleks', 'pilihan', 'arabika']
+  },
+  {
+    id: 'robusta-strong',
+    name: 'Robusta Strong',
+    description: 'Kopi robusta dengan karakter kuat dan bold',
+    price: 'IDR 65K',
+    image: 'img/products/robusta.jpg',
+    rating: 4.7,
+    category: 'products',
+    type: 'coffee-beans',
+    keywords: ['robusta', 'strong', 'kuat', 'bold', 'biji kopi', 'karakter']
+  },
+  {
+    id: 'v60-dripper',
+    name: 'V60 Dripper Set',
+    description: 'Set lengkap untuk manual brewing yang sempurna',
+    price: 'IDR 350K',
+    image: 'img/products/dripper-set.jpg',
+    rating: 4.8,
+    category: 'products',
+    type: 'equipment',
+    keywords: ['v60', 'dripper', 'set', 'brewing', 'manual', 'alat', 'equipment', 'lengkap', 'sempurna']
+  },
+  {
+    id: 'french-press',
+    name: 'French Press Premium',
+    description: 'French press berkualitas tinggi untuk full body coffee',
+    price: 'IDR 275K',
+    image: 'img/products/french-press.jpg',
+    rating: 4.6,
+    category: 'products',
+    type: 'equipment',
+    keywords: ['french press', 'premium', 'berkualitas tinggi', 'full body', 'coffee', 'alat', 'equipment']
+  },
+  {
+    id: 'coffee-mug',
+    name: 'Kenangan Senja Mug',
+    description: 'Mug eksklusif dengan logo Kenangan Senja',
+    price: 'IDR 125K',
+    image: 'img/products/mug.jpg',
+    rating: 4.5,
+    category: 'products',
+    type: 'merchandise',
+    keywords: ['mug', 'kenangan senja', 'eksklusif', 'logo', 'merchandise']
+  },
+  {
+    id: 'tote-bag',
+    name: 'Canvas Tote Bag',
+    description: 'Tas kanvas premium dengan desain minimalis',
+    price: 'IDR 185K',
+    image: 'img/products/totebag.jpg',
+    rating: 4.4,
+    category: 'products',
+    type: 'merchandise',
+    keywords: ['tote bag', 'canvas', 'tas kanvas', 'premium', 'desain minimalis', 'merchandise']
+  },
+  {
+    id: 'starter-set',
+    name: 'Coffee Starter Set',
+    description: 'Paket lengkap untuk pemula kopi manual brewing',
+    price: 'IDR 450K',
+    image: 'img/products/coffee-set.jpg',
+    rating: 4.9,
+    category: 'products',
+    type: 'gift-sets',
+    keywords: ['starter set', 'coffee set', 'paket lengkap', 'pemula', 'manual brewing', 'gift sets']
+  },
+  {
+    id: 'premium-gift',
+    name: 'Premium Gift Box',
+    description: 'Gift box mewah dengan koleksi produk premium',
+    price: 'IDR 750K',
+    image: 'img/products/coffee-pack.jpg',
+    rating: 4.8,
+    category: 'products',
+    type: 'gift-sets',
+    keywords: ['gift box', 'premium', 'mewah', 'koleksi produk', 'hadiah', 'gift sets']
+  }
+];
+
+// Search functionality
+let searchModal, searchInput, searchResults, noResults;
+let currentSearchCategory = 'all';
+let searchTimeout;
+
+// Initialize search functionality
+document.addEventListener('DOMContentLoaded', function() {
+  searchModal = document.getElementById('searchModal');
+  searchInput = document.getElementById('searchInput');
+  searchResults = document.getElementById('searchResults');
+  noResults = document.getElementById('noResults');
+  
+  // Search input event listener
+  searchInput.addEventListener('input', function() {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      performSearch(this.value.trim());
+    }, 300); // Debounce search
+  });
+  
+  // Search category filters
+  const categoryButtons = document.querySelectorAll('.search-category');
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Update active category
+      categoryButtons.forEach(btn => {
+        btn.classList.remove('active', 'bg-gradient-to-r', 'from-[#b6895b]', 'to-[#d4af37]', 'text-white');
+        btn.classList.add('bg-gray-700/30', 'border', 'border-gray-600/30', 'text-gray-300');
+      });
+      
+      this.classList.add('active', 'bg-gradient-to-r', 'from-[#b6895b]', 'to-[#d4af37]', 'text-white');
+      this.classList.remove('bg-gray-700/30', 'border', 'border-gray-600/30', 'text-gray-300');
+      
+      currentSearchCategory = this.dataset.category;
+      performSearch(searchInput.value.trim());
+    });
+  });
+  
+  // Search icon click handlers
+  const searchIcons = document.querySelectorAll('#search, #mobile-search');
+  searchIcons.forEach(icon => {
+    icon.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Close mobile menu if open
+      const navbarNav = document.querySelector(".navbar-nav");
+      if (navbarNav && navbarNav.classList.contains("opacity-100")) {
+        navbarNav.classList.add("opacity-0");
+        navbarNav.classList.add("invisible");
+        navbarNav.classList.remove("opacity-100");
+        navbarNav.classList.remove("visible");
+      }
+      
+      // Open search modal
+      openSearchModal();
+    });
+  });
+});
+
+// Open search modal
+function openSearchModal() {
+  searchModal.classList.remove('opacity-0', 'invisible');
+  searchModal.classList.add('opacity-100', 'visible');
+  
+  const modalContent = searchModal.querySelector('.bg-gradient-to-br');
+  modalContent.classList.remove('scale-95');
+  modalContent.classList.add('scale-100');
+  
+  // Focus on search input
+  setTimeout(() => {
+    searchInput.focus();
+  }, 300);
+  
+  // Prevent background scrolling
+  document.body.style.overflow = 'hidden';
+  
+  // Show all items initially and ensure search results are visible
+  performSearch('');
+  
+  // Make sure search results are visible from the start
+  if (searchResults) {
+    searchResults.classList.remove('opacity-0', 'invisible');
+    searchResults.classList.add('opacity-100', 'visible');
+  }
+  
+  // Hide no results message initially
+  if (noResults) {
+    noResults.classList.remove('opacity-100', 'visible');
+    noResults.classList.add('opacity-0', 'invisible');
+  }
+}
+
+// Close search modal
+function closeSearchModal() {
+  searchModal.classList.remove('opacity-100', 'visible');
+  searchModal.classList.add('opacity-0', 'invisible');
+  
+  const modalContent = searchModal.querySelector('.bg-gradient-to-br');
+  modalContent.classList.remove('scale-100');
+  modalContent.classList.add('scale-95');
+  
+  // Clear search
+  searchInput.value = '';
+  
+  // Restore background scrolling
+  document.body.style.overflow = 'auto';
+}
+
+// Close search modal when clicking outside
+searchModal?.addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeSearchModal();
+  }
+});
+
+// Perform search
+function performSearch(query) {
+  const allItems = [...menuItems, ...productItems];
+  let filteredItems = [];
+  
+  if (query === '') {
+    // Show all items if no search query
+    filteredItems = allItems;
+  } else {
+    // Filter based on search query
+    filteredItems = allItems.filter(item => {
+      const searchText = query.toLowerCase();
+      return (
+        item.name.toLowerCase().includes(searchText) ||
+        item.description.toLowerCase().includes(searchText) ||
+        item.keywords.some(keyword => keyword.toLowerCase().includes(searchText))
+      );
+    });
+  }
+  
+  // Filter by category
+  if (currentSearchCategory !== 'all') {
+    filteredItems = filteredItems.filter(item => item.category === currentSearchCategory);
+  }
+  
+  // Display results
+  displaySearchResults(filteredItems);
+}
+
+// Display search results
+function displaySearchResults(items) {
+  const menuResultsGrid = document.getElementById('menuResultsGrid');
+  const productResultsGrid = document.getElementById('productResultsGrid');
+  const menuResultsSection = document.getElementById('menuResults');
+  const productResultsSection = document.getElementById('productResults');
+  
+  // Clear previous results
+  menuResultsGrid.innerHTML = '';
+  productResultsGrid.innerHTML = '';
+  
+  // Separate items by category
+  const menuResults = items.filter(item => item.category === 'menu');
+  const productResults = items.filter(item => item.category === 'products');
+  
+  // Show/hide sections based on results
+  menuResultsSection.style.display = menuResults.length > 0 ? 'block' : 'none';
+  productResultsSection.style.display = productResults.length > 0 ? 'block' : 'none';
+  
+  // Display menu results
+  menuResults.forEach(item => {
+    const itemElement = createSearchResultItem(item);
+    menuResultsGrid.appendChild(itemElement);
+  });
+  
+  // Display product results
+  productResults.forEach(item => {
+    const itemElement = createSearchResultItem(item);
+    productResultsGrid.appendChild(itemElement);
+  });
+  
+  // Show/hide no results message
+  if (items.length === 0) {
+    noResults.classList.remove('opacity-0', 'invisible');
+    noResults.classList.add('opacity-100', 'visible');
+    searchResults.classList.add('opacity-0', 'invisible');
+    searchResults.classList.remove('opacity-100', 'visible');
+  } else {
+    noResults.classList.remove('opacity-100', 'visible');
+    noResults.classList.add('opacity-0', 'invisible');
+    searchResults.classList.remove('opacity-0', 'invisible');
+    searchResults.classList.add('opacity-100', 'visible');
+  }
+  
+  // Reinitialize Feather icons for new elements
+  if (typeof feather !== 'undefined') {
+    feather.replace();
+  }
+}
+
+// Create search result item
+function createSearchResultItem(item) {
+  const div = document.createElement('div');
+  div.className = 'search-result-item group bg-gradient-to-br from-gray-700/30 to-gray-800/30 backdrop-blur-sm p-3 rounded-xl border border-gray-600/30 hover:border-[#b6895b]/50 transition-all duration-300 cursor-pointer';
+  
+  div.innerHTML = `
+    <div class="flex items-start space-x-3">
+      <div class="relative w-16 h-16 flex-shrink-0">
+        <img src="${item.image}" alt="${item.name}" 
+          class="w-full h-full object-cover rounded-lg border border-gray-600/30 group-hover:border-[#b6895b]/50 transition-colors duration-300" />
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-lg"></div>
+      </div>
+      <div class="flex-1 min-w-0">
+        <h4 class="text-base font-semibold mb-1">
+          <span class="text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">${item.name}</span>
+        </h4>
+        <p class="text-xs text-gray-400 mb-2 line-clamp-2">${item.description}</p>
+        <div class="flex items-center justify-between">
+          <span class="text-white font-bold text-sm">${item.price}</span>
+          <div class="flex items-center text-yellow-400 text-xs">
+            <i data-feather="star" class="w-3 h-3 fill-current mr-1"></i>
+            <span>${item.rating}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  // Add click handler
+  div.addEventListener('click', function() {
+    closeSearchModal();
+    if (item.category === 'menu') {
+      openMenuModal(item.id);
+    } else {
+      openProductModal(item.id);
+    }
+  });
+  
+  return div;
+}

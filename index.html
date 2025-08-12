@@ -156,7 +156,7 @@
           </a>
           <div class="border-t border-gray-700/50 pt-3 mt-3">
             <div class="flex items-center justify-center space-x-4">
-              <a href="#"
+              <a href="#" id="mobile-search"
                 class="p-2 rounded-full text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-300">
                 <i data-feather="search" class="w-5 h-5"></i>
               </a>
@@ -919,6 +919,91 @@
         class="bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-2xl max-w-md w-full border border-gray-700/50 shadow-2xl transform scale-95 transition-all duration-300"
         id="menuModalContent">
         <!-- Menu modal content will be inserted here by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div id="searchModal"
+      class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
+      <div
+        class="bg-gradient-to-br from-gray-800/95 to-gray-900/95 backdrop-blur-xl rounded-3xl border border-gray-700/50 shadow-2xl w-full max-w-4xl max-h-[85vh] overflow-hidden transform scale-95 transition-all duration-300">
+        <!-- Modal Header -->
+        <div class="p-4 border-b border-gray-700/50">
+          <div class="flex items-center justify-between">
+            <h2 class="text-xl font-bold">
+              <span
+                class="text-transparent bg-gradient-to-r from-[#b6895b] to-[#d4af37] bg-clip-text">Pencarian</span>
+              <span class="text-white">Menu & Produk</span>
+            </h2>
+            <button onclick="closeSearchModal()"
+              class="p-2 rounded-full text-gray-400 hover:text-white hover:bg-gray-700/50 transition-all duration-300">
+              <i data-feather="x" class="w-5 h-5"></i>
+            </button>
+          </div>
+          
+          <!-- Search Input -->
+          <div class="mt-4 relative">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <i data-feather="search" class="w-5 h-5 text-gray-400"></i>
+            </div>
+            <input type="text" id="searchInput" placeholder="Cari menu atau produk..."
+              class="w-full pl-12 pr-4 py-3 bg-gray-700/30 border border-gray-600/50 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#b6895b]/50 focus:border-[#b6895b]/50 transition-all duration-300"
+              autocomplete="off">
+          </div>
+        </div>
+
+        <!-- Search Results -->
+        <div class="p-4 overflow-y-auto" style="max-height: calc(85vh - 160px);">
+          <!-- Search Categories -->
+          <div class="flex flex-wrap gap-2 mb-4">
+            <button class="search-category active px-3 py-2 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white rounded-full text-sm font-medium transition-all duration-300"
+              data-category="all">
+              Semua
+            </button>
+            <button class="search-category px-3 py-2 bg-gray-700/30 border border-gray-600/30 text-gray-300 rounded-full text-sm font-medium hover:bg-[#b6895b]/20 hover:text-white transition-all duration-300"
+              data-category="menu">
+              Menu
+            </button>
+            <button class="search-category px-3 py-2 bg-gray-700/30 border border-gray-600/30 text-gray-300 rounded-full text-sm font-medium hover:bg-[#b6895b]/20 hover:text-white transition-all duration-300"
+              data-category="products">
+              Produk
+            </button>
+          </div>
+
+          <!-- No Results Message -->
+          <div id="noResults" class="text-center py-8 opacity-0 invisible transition-all duration-300">
+            <div class="text-gray-400 text-lg mb-2">
+              <i data-feather="search" class="w-10 h-10 mx-auto mb-3 opacity-50"></i>
+              Tidak ada hasil ditemukan
+            </div>
+            <p class="text-gray-500 text-sm">Coba gunakan kata kunci yang berbeda</p>
+          </div>
+
+          <!-- Search Results Container -->
+          <div id="searchResults" class="space-y-4">
+            <!-- Menu Results -->
+            <div id="menuResults" class="search-section">
+              <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
+                <i data-feather="coffee" class="w-5 h-5 mr-2 text-[#d4af37]"></i>
+                Menu
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="menuResultsGrid">
+                <!-- Menu items will be populated by JavaScript -->
+              </div>
+            </div>
+
+            <!-- Product Results -->
+            <div id="productResults" class="search-section">
+              <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
+                <i data-feather="shopping-bag" class="w-5 h-5 mr-2 text-[#d4af37]"></i>
+                Produk
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="productResultsGrid">
+                <!-- Product items will be populated by JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
