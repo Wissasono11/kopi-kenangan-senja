@@ -579,11 +579,11 @@ function openMenuModal(menuId) {
         </div>
         
         <!-- Action Buttons -->
-        <div class="flex gap-3">
-          <button class="flex-1 bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white px-4 py-3 rounded-full font-medium hover:shadow-lg hover:shadow-[#b6895b]/40 transition-all duration-300 transform hover:scale-105">
+        <div class="flex flex-row gap-3">
+          <a class="lg:flex-1 w-fit bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white px-4 py-3 rounded-full font-medium hover:shadow-lg hover:shadow-[#b6895b]/40 transition-all duration-300 transform hover:scale-105 text-center">
             Tambah ke Keranjang
-          </button>
-          <a href="#contact" onclick="closeMenuModal()" class="flex-1 bg-gray-800/50 backdrop-blur-sm border border-gray-600/30 text-white px-4 py-3 rounded-full font-medium hover:bg-[#b6895b]/20 transition-all duration-300 text-center">
+          </a>
+          <a href="#contact" onclick="closeMenuModal()" class="lg:flex-1 w-fit bg-gray-800/50 backdrop-blur-sm border border-gray-600/30 text-white px-4 py-3 rounded-full font-medium hover:bg-[#b6895b]/20 transition-all duration-300 text-center">
             Pesan Sekarang
           </a>
         </div>
