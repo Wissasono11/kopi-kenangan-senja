@@ -18,40 +18,6 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/style.css" />
 
-    <!-- Performance Optimization Styles -->
-    <style>
-      /* GPU acceleration for transforms */
-      .will-change-transform {
-        will-change: transform;
-      }
-      
-      /* Reduce motion for accessibility and performance */
-      @media (prefers-reduced-motion: reduce) {
-        .product-item {
-          transition: none !important;
-        }
-        .product-item img {
-          transition: none !important;
-        }
-      }
-      
-      /* Image loading optimization */
-      img {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: optimize-contrast;
-      }
-      
-      /* Smooth scrolling optimization */
-      html {
-        scroll-behavior: smooth;
-      }
-      
-      /* Contain layout shifts */
-      .product-item {
-        contain: layout style;
-      }
-    </style>
-
     <!-- Feather Icons -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.2/feather.min.js"

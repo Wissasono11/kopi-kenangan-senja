@@ -531,7 +531,7 @@ function openMenuModal(menuId) {
   // Use requestAnimationFrame for smoother rendering
   requestAnimationFrame(() => {
     modalContent.innerHTML = `
-      <div class="relative p-6">
+      <div class="relative py-6 flex flex-col items-center">
         <!-- Close Button -->
         <button onclick="closeMenuModal()" class="absolute top-4 right-4 z-10 w-8 h-8 bg-red-500/20 hover:bg-red-500/40 backdrop-blur-sm border border-red-500/30 rounded-full flex items-center justify-center text-red-400 hover:text-red-300 transition-all duration-300">
           <i data-feather="x" class="w-4 h-4"></i>
@@ -560,7 +560,7 @@ function openMenuModal(menuId) {
         </div>
         
         <!-- Simple Description -->
-        <div class="text-center mb-6">
+        <div class="text-center mb-6 p-4">
           <p class="text-gray-300 text-sm leading-relaxed">
             ${menu.description}
           </p>
@@ -579,11 +579,11 @@ function openMenuModal(menuId) {
         </div>
         
         <!-- Action Buttons -->
-        <div class="flex flex-row gap-3">
-          <a class="lg:flex-1 w-fit bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white px-4 py-3 rounded-full font-medium hover:shadow-lg hover:shadow-[#b6895b]/40 transition-all duration-300 transform hover:scale-105 text-center">
+        <div class="flex flex-row gap-x-3">
+          <a class="w-fit bg-gradient-to-r from-[#b6895b] to-[#d4af37] text-white px-4 py-3 rounded-full font-medium hover:shadow-lg hover:shadow-[#b6895b]/40 transition-all duration-300 transform hover:scale-105 text-center">
             Tambah ke Keranjang
           </a>
-          <a href="#contact" onclick="closeMenuModal()" class="lg:flex-1 w-fit bg-gray-800/50 backdrop-blur-sm border border-gray-600/30 text-white px-4 py-3 rounded-full font-medium hover:bg-[#b6895b]/20 transition-all duration-300 text-center">
+          <a href="#contact" onclick="closeMenuModal()" class="w-fit bg-gray-800/50 backdrop-blur-sm border border-gray-600/30 text-white px-4 py-3 rounded-full font-medium hover:bg-[#b6895b]/20 transition-all duration-300 text-center">
             Pesan Sekarang
           </a>  
         </div>
